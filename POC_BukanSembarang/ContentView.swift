@@ -1,3 +1,10 @@
+//
+//  ContentView.swift
+//  ContentView
+//
+//  Created by Muhammad Rizki on 19/05/26.
+//
+
 import SwiftUI
 
 struct ContentView: View {
@@ -48,29 +55,6 @@ struct ContentView: View {
                             status: "Perlu mic + speech permission"
                         )
                     }
-
-                    NavigationLink {
-                        ObjectDetectionPOCView()
-                    } label: {
-                        POCRowView(
-                            number: "3",
-                            title: "Object Detection",
-                            subtitle: "YOLO + CoreML + Vision",
-                            icon: "camera.viewfinder",
-                            color: .purple,
-                            eta: "~4–6 jam",
-                            status: "Perlu download model YOLO"
-                        )
-                    }
-                }
-
-                Section("Metrik Lulus POC") {
-                    VStack(alignment: .leading, spacing: 6) {
-                        MetricRow(poc: "TTS", metric: "Kata household jelas diucapkan, rate cocok anak")
-                        MetricRow(poc: "Speech", metric: "≥70% kata ter-recognise benar, false positive <10%")
-                        MetricRow(poc: "Detection", metric: "≥10 FPS, confidence >60% untuk furniture standar")
-                    }
-                    .padding(.vertical, 4)
                 }
             }
             .navigationTitle("POC BukanSembarang")
@@ -113,26 +97,6 @@ private struct POCRowView: View {
     }
 }
 
-private struct MetricRow: View {
-    let poc: String
-    let metric: String
-
-    var body: some View {
-        HStack(alignment: .top, spacing: 8) {
-            Text(poc)
-                .font(.caption)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
-                .padding(.horizontal, 6)
-                .padding(.vertical, 2)
-                .background(Color.blue)
-                .cornerRadius(4)
-            Text(metric)
-                .font(.caption)
-                .foregroundColor(.secondary)
-        }
-    }
-}
 
 #Preview {
     ContentView()
